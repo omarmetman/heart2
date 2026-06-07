@@ -35,7 +35,7 @@ const HeartCloud = () => {
   const group = useRef<THREE.Group>(null!);
   const particles = useMemo(() => {
     const temp = [];
-    const count = 250; // Optimized count
+    const count = 120; // Lighter count
     const text = "i love you";
     
     for (let i = 0; i < count; i++) {
@@ -59,7 +59,7 @@ const HeartCloud = () => {
 
   useFrame((state) => {
     if (group.current) {
-        group.current.rotation.y = state.clock.getElapsedTime() * 0.2;
+        group.current.rotation.y = state.clock.getElapsedTime() * 0.08;
     }
   });
 
@@ -87,7 +87,7 @@ export default function HeartScene({ active }: { active: boolean }) {
           polar={[-Math.PI / 2, Math.PI / 2]}
           azimuth={[-Math.PI, Math.PI]}
         >
-          <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
+          <Float speed={0.8} rotationIntensity={0.2} floatIntensity={0.2}>
             <HeartCloud />
           </Float>
         </PresentationControls>
