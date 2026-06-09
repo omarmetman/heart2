@@ -130,6 +130,15 @@ export default function App() {
               >
                 Re-encrypt
               </motion.button>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 5, duration: 2 }}
+                className="mt-8 text-[10px] font-mono text-white/20 tracking-widest uppercase"
+              >
+                made with ♥ by Omar M. Etman
+              </motion.p>
             </motion.div>
 
             {/* Subtle tech overlays */}
@@ -140,7 +149,7 @@ export default function App() {
             </div>
             
             <div className="absolute bottom-8 right-8 text-[10px] font-mono text-white/10 uppercase tracking-widest">
-                heart_reveal // success
+                © Omar M. Etman
             </div>
           </motion.div>
         )}
@@ -148,4 +157,3 @@ export default function App() {
     </div>
   );
 }
-
