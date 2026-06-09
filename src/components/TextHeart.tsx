@@ -38,7 +38,7 @@ export default function TextHeart() {
       // x = 16 sin^3(t)
       // y = -(13 cos(t) - 5 cos(2t) - 2 cos(3t) - cos(4t))
       
-      for (let t = 0; t < Math.PI * 2; t += 0.1) {
+      for (let t = 0; t < Math.PI * 2; t += 0.03) {
         const x = 16 * Math.pow(Math.sin(t), 3);
         const y = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
         
@@ -52,8 +52,8 @@ export default function TextHeart() {
       }
 
       // Add inner layers
-      for (let s = 0.3; s < 1; s += 0.35) {
-          for (let t = 0; t < Math.PI * 2; t += 0.18) {
+      for (let s = 0.15; s < 1; s += 0.12) {
+          for (let t = 0; t < Math.PI * 2; t += 0.06) {
             const x = 16 * Math.pow(Math.sin(t), 3);
             const y = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
             
@@ -78,12 +78,20 @@ export default function TextHeart() {
       
       points.forEach(p => {
         if (elapsed > p.delay) {
-            p.alpha += (p.targetAlpha - p.alpha) * 0.008;
+            p.alpha += (p.targetAlpha - p.alpha) * 0.006;
         }
 
         ctx.fillStyle = `rgba(255, 77, 109, ${p.alpha})`;
         ctx.fillText(text, p.x - ctx.measureText(text).width / 2, p.y);
       });
+
+      // Draw watermark
+      ctx.save();
+      ctx.font = `11px "Fira Code", monospace`;
+      ctx.fillStyle = `rgba(255, 77, 109, 0.15)`;
+      ctx.textAlign = 'center';
+      ctx.fillText('— Omar M. Etman —', canvas.width / 2, canvas.height - 24);
+      ctx.restore();
 
       animationFrameId = requestAnimationFrame(draw);
     };
