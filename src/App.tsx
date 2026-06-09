@@ -135,7 +135,7 @@ export default function App() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 5, duration: 2 }}
-                className="mt-8 text-[10px] font-mono text-white/20 tracking-widest uppercase"
+                className="mt-8 text-base font-mono font-bold text-pink-deep/70 tracking-[0.2em] uppercase"
               >
                 made with ♥ by Omar M. Etman
               </motion.p>
@@ -148,7 +148,7 @@ export default function App() {
                 <div>type: organic_emotion</div>
             </div>
             
-            <div className="absolute bottom-8 right-8 text-[10px] font-mono text-white/10 uppercase tracking-widest">
+            <div className="absolute bottom-8 right-8 text-xs font-mono font-bold text-pink-deep/40 uppercase tracking-widest">
                 © Omar M. Etman
             </div>
           </motion.div>
