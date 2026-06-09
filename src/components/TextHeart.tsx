@@ -51,14 +51,16 @@ export default function TextHeart() {
         });
       }
 
-      // Add inner layers
-      for (let s = 0.1; s < 1; s += 0.08) {
+      // Add inner layers — تبدأ من كبير للصغير عشان القاع نقطة واحدة
+      for (let s = 0.9; s > 0.1; s -= 0.08) {
           for (let t = 0; t < Math.PI * 2; t += 0.03) {
             const x = 16 * Math.pow(Math.sin(t), 3);
             const y = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
             
+            // اضغط القاع — كل ما s صغر، اجمع النقاط للمركز في المحور X
+            const squeeze = s;
             points.push({
-              x: centerX + x * scale * s,
+              x: centerX + x * scale * squeeze,
               y: centerY + y * scale * s,
               alpha: 0,
               targetAlpha: 0.4 + Math.random() * 0.4,
